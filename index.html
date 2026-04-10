@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Heart & Blood Quiz</title>
+
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac);
+  margin: 0;
+  padding: 20px;
+}
+
+.quiz-box {
+  max-width: 650px;
+  margin: auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  color: #e63946;
+}
+
+.heart {
+  text-align: center;
+  font-size: 40px;
+}
+
+.question {
+  margin: 18px 0;
+  padding: 10px;
+  border-left: 5px solid #ff4d6d;
+  background: #fff5f7;
+  border-radius: 8px;
+}
+
+input {
+  margin-right: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c1121f;
+}
+
+#result {
+  text-align: center;
+  margin-top: 20px;
+  color: #1d3557;
+  font-weight: bold;
+  white-space: pre-line;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #555;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<div class="heart">❤️ 🫀 💉</div>
+<h2>Heart, Blood & Vessels Quiz</h2>
+
+<form id="quizForm">
+
+<div class="question">
+<p>1. Which structure prevents backflow of blood?</p>
+<input type="radio" name="q1" value="a"> Septum<br>
+<input type="radio" name="q1" value="b"> Valve<br>
+<input type="radio" name="q1" value="c"> Artery<br>
+<input type="radio" name="q1" value="d"> Capillary<br>
+</div>
+
+<div class="question">
+<p>2. Highest blood pressure is in:</p>
+<input type="radio" name="q2" value="a"> Veins<br>
+<input type="radio" name="q2" value="b"> Capillaries<br>
+<input type="radio" name="q2" value="c"> Arteries<br>
+<input type="radio" name="q2" value="d"> Venules<br>
+</div>
+
+<div class="question">
+<p>3. Which chamber pumps blood to body?</p>
+<input type="radio" name="q3" value="a"> Right atrium<br>
+<input type="radio" name="q3" value="b"> Left atrium<br>
+<input type="radio" name="q3" value="c"> Right ventricle<br>
+<input type="radio" name="q3" value="d"> Left ventricle<br>
+</div>
+
+<div class="question">
+<p>4. RBC mainly carries:</p>
+<input type="radio" name="q4" value="a"> Nutrients<br>
+<input type="radio" name="q4" value="b"> Hormones<br>
+<input type="radio" name="q4" value="c"> Oxygen<br>
+<input type="radio" name="q4" value="d"> Waste<br>
+</div>
+
+<div class="question">
+<p>5. Blood clotting is done by:</p>
+<input type="radio" name="q5" value="a"> Plasma<br>
+<input type="radio" name="q5" value="b"> WBC<br>
+<input type="radio" name="q5" value="c"> Platelets<br>
+<input type="radio" name="q5" value="d"> RBC<br>
+</div>
+
+<div class="question">
+<p>6. Gas exchange occurs in:</p>
+<input type="radio" name="q6" value="a"> Arteries<br>
+<input type="radio" name="q6" value="b"> Veins<br>
+<input type="radio" name="q6" value="c"> Capillaries<br>
+<input type="radio" name="q6" value="d"> Aorta<br>
+</div>
+
+<div class="question">
+<p>7. Arteries have thick walls because:</p>
+<input type="radio" name="q7" value="a"> Store blood<br>
+<input type="radio" name="q7" value="b"> High pressure<br>
+<input type="radio" name="q7" value="c"> Low pressure<br>
+<input type="radio" name="q7" value="d"> Exchange gases<br>
+</div>
+
+<div class="question">
+<p>8. Deoxygenated blood to lungs travels via:</p>
+<input type="radio" name="q8" value="a"> Pulmonary vein<br>
+<input type="radio" name="q8" value="b"> Pulmonary artery<br>
+<input type="radio" name="q8" value="c"> Aorta<br>
+<input type="radio" name="q8" value="d"> Vena cava<br>
+</div>
+
+<div class="question">
+<p>9. Right & left heart are separated by:</p>
+<input type="radio" name="q9" value="a"> Valve<br>
+<input type="radio" name="q9" value="b"> Septum<br>
+<input type="radio" name="q9" value="c"> Muscle<br>
+<input type="radio" name="q9" value="d"> Vessel<br>
+</div>
+
+<div class="question">
+<p>10. Blood from body enters:</p>
+<input type="radio" name="q10" value="a"> Left atrium<br>
+<input type="radio" name="q10" value="b"> Right atrium<br>
+<input type="radio" name="q10" value="c"> Left ventricle<br>
+<input type="radio" name="q10" value="d"> Aorta<br>
+</div>
+
+<button type="button" onclick="checkAnswers()">Submit ❤️</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+<div class="footer">
+  Biology Quiz Project
+</div>
+
+</div>
+
+<script>
+function checkAnswers() {
+  let score = 0;
+
+  let answers = {
+    q1: "b",
+    q2: "c",
+    q3: "d",
+    q4: "c",
+    q5: "c",
+    q6: "c",
+    q7: "b",
+    q8: "b",
+    q9: "b",
+    q10: "b"
+  };
+
+  for (let q in answers) {
+    let selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (selected && selected.value === answers[q]) {
+      score++;
+    }
+  }
+
+  let message = "";
+
+  if (score === 10) {
+    message = "🌟 Outstanding! Perfect understanding of the circulatory system!";
+  } 
+  else if (score >= 8) {
+    message = "👏 Excellent work! You have strong knowledge!";
+  } 
+  else if (score >= 5) {
+    message = "👍 Good job! Keep revising to improve further.";
+  } 
+  else {
+    message = "💡 Keep trying! Review the concepts and try again.";
+  }
+
+  document.getElementById("result").innerText =
+    "❤️ Your Score: " + score + " / 10\n\n" +
+    message + "\n\n" +
+    "Prepared by Bhyrava Swarna Kumar SA (BS)";
+}
+</script>
+
+</body>
+</html>
